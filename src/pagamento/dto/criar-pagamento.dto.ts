@@ -1,3 +1,5 @@
+import { IEndereco } from '../../shared/interfaces/endereco.interface';
+
 interface ItemPedidoDto {
   idProduto: string;
   quantidade: number;
@@ -10,4 +12,5 @@ export class CriarPagamentoDto {
   emailComprador: string;
   nomeComprador: string;
   itens: ItemPedidoDto[];
+  endereco: IEndereco;
 }
