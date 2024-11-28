@@ -56,12 +56,13 @@ export class PagamentoService {
       },
     });
 
-    this.clientPedidoBackend.emit('criar-pedido', {
-      idComprador: criarPagamentoDto.idComprador,
-      itens: criarPagamentoDto.itens,
-      total: criarPagamentoDto.quantia,
-      idPagamento: paymentIntent.id,
-    });
+    if (paymentIntent)
+      this.clientPedidoBackend.emit('criar-pedido', {
+        idComprador: criarPagamentoDto.idComprador,
+        itens: criarPagamentoDto.itens,
+        total: criarPagamentoDto.quantia,
+        idPagamento: paymentIntent.id,
+      });
 
     return {
       paymentIntent: paymentIntent.client_secret,
