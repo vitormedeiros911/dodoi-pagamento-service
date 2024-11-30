@@ -13,4 +13,5 @@ export class CriarPagamentoDto {
   nomeComprador: string;
   itens: ItemPedidoDto[];
   endereco: IEndereco;
+  idFarmacia: string;
 }

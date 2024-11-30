@@ -62,6 +62,7 @@ export class PagamentoService {
         itens: criarPagamentoDto.itens,
         total: criarPagamentoDto.quantia,
         idPagamento: paymentIntent.id,
+        idFarmacia: criarPagamentoDto.idFarmacia,
       });
 
     return {
