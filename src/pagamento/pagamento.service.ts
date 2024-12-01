@@ -20,7 +20,7 @@ export class PagamentoService {
   private clientPedidoBackend =
     this.clientProxyService.getClientProxyPedidoServiceInstance();
 
-  async buscaPublishableKey() {
+  buscaPublishableKey() {
     return {
       key: process.env.STRIPE_PUBLISHABLE_KEY,
     };

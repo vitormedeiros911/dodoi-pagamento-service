@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 
 import { ClientProxyModule } from './client-proxy/client-proxy.module';
 import { PagamentoModule } from './pagamento/pagamento.module';
+import { CartaoModule } from './cartao/cartao.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { PagamentoModule } from './pagamento/pagamento.module';
     MongooseModule.forRoot(process.env.MONGO_URI),
     PagamentoModule,
     ClientProxyModule,
+    CartaoModule,
   ],
 })
 export class AppModule {}

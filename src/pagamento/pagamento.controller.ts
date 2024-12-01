@@ -14,7 +14,7 @@ export class PagamentoController {
   }
 
   @MessagePattern('buscar-publishable-key')
-  async buscaPublishableKey() {
+  buscaPublishableKey() {
     return this.pagamentoService.buscaPublishableKey();
   }
 }
