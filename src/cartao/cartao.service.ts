@@ -16,6 +16,13 @@ export class CartaoService {
       email,
     });
 
+    if (customer.data.length === 0) {
+      return {
+        idCliente: null,
+        cartoes: [],
+      };
+    }
+
     const paymentMethods = await this.stripe.paymentMethods.list({
       customer: customer.data[0].id,
       type: 'card',
