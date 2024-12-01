@@ -85,4 +85,15 @@ export class PagamentoService {
 
     return newCustomer;
   }
+
+  async estornarPagamento(idPagamento: string) {
+    const paymentIntent =
+      await this.stripe.paymentIntents.retrieve(idPagamento);
+
+    if (paymentIntent.status === 'succeeded') {
+      await this.stripe.refunds.create({
+        payment_intent: idPagamento,
+      });
+    }
+  }
 }
