@@ -3,6 +3,7 @@ import {
   Ctx,
   EventPattern,
   MessagePattern,
+  Payload,
   RmqContext,
 } from '@nestjs/microservices';
 
@@ -15,7 +16,7 @@ export class CartaoController {
   constructor(private readonly cartaoService: CartaoService) {}
 
   @MessagePattern('listar-cartoes')
-  async listarCartoes(email: string, @Ctx() context: RmqContext) {
+  async listarCartoes(@Payload() email: string, @Ctx() context: RmqContext) {
     const channel = context.getChannelRef();
     const originalMsg = context.getMessage();
 
@@ -27,7 +28,7 @@ export class CartaoController {
   }
 
   @EventPattern('delete-cartao')
-  async deleteCartao(idCartao: string, @Ctx() context: RmqContext) {
+  async deleteCartao(@Payload() idCartao: string, @Ctx() context: RmqContext) {
     const channel = context.getChannelRef();
     const originalMsg = context.getMessage();
 
